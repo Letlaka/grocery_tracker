@@ -1,11 +1,14 @@
 {
     "cSpell.words": [
+        "asgi",
         "backupdata",
         "DBBACKUP",
         "Letlaka",
         "PGDATABASE",
         "PGHOST",
         "PGUSER",
-        "Tsotetsi"
+        "pyproject",
+        "Tsotetsi",
+        "wsgi"
     ]
 }
