@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Detail</title>
+</head>
+<body>
+    <h1>Category: {{ category.name }}</h1>
+    <p>Description: {{ category.description }}</p>
+
+    <h2>Items in this Category</h2>
+    <ul>
+        {% for item in category.items.all %}
+            <li>{{ item.name }} ({{ item.quantity }})</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'item_list' %}">Back to Item List</a>
+</body>
+</html>
