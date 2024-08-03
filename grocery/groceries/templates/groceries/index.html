@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Grocery Tracker</title>
-</head>
-<body>
+{% load static %}{% block content %}
     <h1>Grocery Tracker</h1>
     <ul>
         {% for category in categories %}
@@ -16,5 +11,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

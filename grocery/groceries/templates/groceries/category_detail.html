@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Category Detail</title>
-</head>
-<body>
+{% load static %}{% block content %}
     <h1>Category: {{ category.name }}</h1>
     <p>Description: {{ category.description }}</p>
 
@@ -16,5 +10,4 @@
     </ul>
 
     <a href="{% url 'item_list' %}">Back to Item List</a>
-</body>
-</html>
+{% endblock %}

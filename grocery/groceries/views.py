@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect # type: ignore
 from .models import Category, GroceryItem
-from .forms import GroceryItem, CategoryForm
+from .forms import GroceryItemForm, CategoryForm
 
 def index(request):
     categories = Category.objects.all()
@@ -9,22 +9,22 @@ def index(request):
 
 def add_item(request):
     if request.method == 'POST':
-        form = GroceryItem(request.POST)
+        form = GroceryItemForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("item_list")
     else:
-        form = GroceryItem()
+        form = GroceryItemForm()
     context = {"form": form}
     return render(request, 'groceries/add_item.html', context)
 
 def item_list(request):
     items = GroceryItem.objects.all()
-    return render(request, 'grocery/item_list.html', {'items': items})
+    return render(request, 'groceries/item_list.html', {'items': items})
 
 def category_detail(request, pk):
     category = get_object_or_404(Category, pk=pk)
-    return render(request, 'grocery/category_detail.html', {'category': category})
+    return render(request, 'groceries/category_detail.html', {'category': category})
 
 def category_edit(request, pk):
     category = get_object_or_404(Category, pk=pk)
@@ -35,4 +35,4 @@ def category_edit(request, pk):
             return redirect('category_detail', pk=category.pk)
     else:
         form = CategoryForm(instance=category)
-    return render(request, 'grocery/category_edit.html', {'form': form, 'category': category})
+    return render(request, 'groceries/category_edit.html', {'form': form, 'category': category})
